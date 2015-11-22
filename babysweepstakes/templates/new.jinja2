@@ -21,14 +21,14 @@
     <div class="field">
       <label for="days_late">How many days early (-numbers) or late (+numbers) will the baby be?</label><br>
       {% if error_days_late is defined %} <span class="error">You must enter how many days early (-) or late (+) the baby will be</span>{% endif %}
-      <input type="number" id="days_late" name="days_late" class="early_late" value="{{days_late}}" min="-30" max="30">
+      <input type="number" id="days_late" name="days_late" class="early_late" value="{{days_late}}" inputmode="numeric" min="-30" max="30">
       <br><span class="fake_label">Predicted due date: </span><span class="due_date"></span>
     </div>
     <div class="field">
       <label for="pounds">How heavy will baby be at birth (pounds & ounces)?</label><br>
       {% if error_pounds is defined or error_ounces %} <span class="error">You must enter a weight for the baby</span>{% endif %}
-      <input type="number" id="pounds" name="pounds" class="pounds" value="{{pounds}}" min="0" max="20">lb
-      <input type="number" id="ounces" name="ounces" class="ounces" value="{{ounces}}">oz
+      <input type="number" id="pounds" name="pounds" class="pounds" value="{{pounds}}" inputmode="numeric" min="0" max="20">lb
+      <input type="number" id="ounces" name="ounces" class="ounces" value="{{ounces}}" inputmode="numeric">oz
       <br><span class="fake_label">Baby's weight in kilos: </span><span class="kilos_and_grams"></span>
     </div>
     <div class="field">
