@@ -9,7 +9,8 @@ update_early_late = function(parent) {
         early_late = parseInt(early_late_elem.text(), 10);
     }
     due_date = new Date(the_due_date.getTime() + early_late * 24 * 60 * 60 * 1000);
-    $('.due_date', parent).text(due_date.toDateString());
+    date_text = 'Invalid Date' != due_date ? due_date.toDateString() : '';
+    $('.due_date', parent).text(date_text);
 };
 
 $('.guess').each(function() {
@@ -26,7 +27,8 @@ update_weight = function(parent) {
     all_grams = all_ounces * 28.3495;
     kilos = Math.floor(all_grams / 1000);
     grams = Math.floor(all_grams % 1000);
-    $('.kilos_and_grams', parent).text('' + kilos + '.' + grams + 'kg');
+    metric_text = !isNaN(kilos) ? '' + kilos + '.' + grams + 'kg' : '';
+    $('.kilos_and_grams', parent).text(metric_text);
 };
 
 $('.guess').each(function() {

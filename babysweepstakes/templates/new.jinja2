@@ -2,20 +2,25 @@
 {% block content %}
   <form method="POST" action="" class="guess">
     <div>
-      <input type="text" name="your_name"/>
+      {% if error_your_name is defined %} <span class="error">You must enter your name</span>{% endif %}
+      <input type="text" name="your_name" value="{{your_name}}">
     </div>
     <div>
-        <input type="radio" name="baby_sex" value="Boy">Boy
-        <input type="radio" name="baby_sex" value="Girl">Girl
+      {% if error_baby_sex is defined %} <span class="error">You must enter a sex for the baby</span>{% endif %}
+        <input type="radio" name="baby_sex" value="Boy"{{ ' checked' if baby_sex is equalto 'Boy' }}>Boy
+        <input type="radio" name="baby_sex" value="Girl"{{ ' checked' if baby_sex is equalto 'Girl' }}>Girl
     <div>
-      <input type="number" name="days_late" class="early_late" value="0">
+      {% if error_days_late is defined %} <span class="error">You must enter how many days early (-) or late (+) the baby will be</span>{% endif %}
+      <input type="number" name="days_late" class="early_late" value="{{days_late}}" min="-30" max="30">
       <span class="due_date"></span>
     </div>
     <div>
-      <input type="number" name="pounds" class="pounds" value="7" min="0">lb
-      <input type="number" name="ounces" class="ounces" value="6">oz
+      {% if error_pounds is defined or error_ounces %} <span class="error">You must enter a weight for the baby</span>{% endif %}
+      <input type="number" name="pounds" class="pounds" value="{{pounds}}" min="0" max="20">lb
+      <input type="number" name="ounces" class="ounces" value="{{ounces}}">oz
       <span class="kilos_and_grams"></span>
     </div>
-    <input type="submit" value="Submit"/>
+    <input type="hidden" name="submit" value="submit">
+    <input type="submit" value="Submit">
   </form>
 {% endblock %}
