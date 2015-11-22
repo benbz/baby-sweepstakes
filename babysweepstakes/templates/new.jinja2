@@ -1,7 +1,7 @@
 {% extends "templates/Layout.jinja2" %}
 {% block content %}
   <form method="POST" action="" class="guess">
-    <p>Jen and Ben are having a baby. <strong>Suprise!</strong></p>
+    <p>Jen and Ben are having a baby. <strong>Surprise!</strong></p>
 
     <p>Want to guess how big the parasite will be when it emerges? Feel like a bet on how much longer Jen is going to keep expanding? You've come to the right place!</p>
 
@@ -22,7 +22,7 @@
       <label for="days_late">How many days early (-numbers) or late (+numbers) will the baby be?</label><br>
       {% if error_days_late is defined %} <span class="error">You must enter how many days early (-) or late (+) the baby will be</span>{% endif %}
       <input type="number" id="days_late" name="days_late" class="early_late" value="{{days_late}}" min="-30" max="30">
-      <br><span class="fake_label">Baby's expected due date: </span><span class="due_date"></span>
+      <br><span class="fake_label">Predicted due date: </span><span class="due_date"></span>
     </div>
     <div class="field">
       <label for="pounds">How heavy will baby be at birth (pounds & ounces)?</label><br>
