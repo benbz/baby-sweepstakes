@@ -1,0 +1,27 @@
+{% extends "templates/Layout.jinja2" %}
+{% block content %}
+  <table class="all-guesses">
+    <thead>
+        <tr>
+            <th>Guesser</th>
+            <th>Sex</th>
+            <th>Days Early (-) / Late (+)</th>
+            <th>Predicted Due Date</th>
+            <th>Weight (lb & oz)</th>
+            <th>Weight (kg)</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for guess in guesses %}
+    <tr class="guess">
+        <td>{{guess.your_name}}</td>
+        <td>{{guess.baby_sex}}</td>
+        <td class="early_late">{{guess.days_late}}</td>
+        <td class="due_date"></td>
+        <td>{{guess.pounds_and_ounces}}</td>
+        <td>{{guess.kilos_and_grams}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
