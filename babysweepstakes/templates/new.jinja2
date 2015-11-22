@@ -19,9 +19,70 @@
       <input type="radio" id="Girl" name="baby_sex" value="Girl"{{ ' checked' if baby_sex is equalto 'Girl' }}><span class="sex">Girl</span>
     </div>
     <div class="field">
-      <label for="days_late">How many days early (-numbers) or late (+numbers) will the baby be?</label><br>
-      {% if error_days_late is defined %} <span class="error">You must enter how many days early (-) or late (+) the baby will be</span>{% endif %}
-      <input type="number" id="days_late" name="days_late" class="early_late" value="{{days_late}}" inputmode="numeric" min="-30" max="30">
+      <label for="days_late">How many days early or late will the baby be?</label><br>
+      {% if error_days_late is defined %} <span class="error">You must enter how many days early or late the baby will be?</span>{% endif %}
+      <select name="days_late" id="days_late" class="early_late">
+        <option value="-29" {{ 'selected' if days_late == '-29'}}>29 days early</option>
+        <option value="-28" {{ 'selected' if days_late == '-28'}}>28 days early</option>
+        <option value="-27" {{ 'selected' if days_late == '-27'}}>27 days early</option>
+        <option value="-26" {{ 'selected' if days_late == '-26'}}>26 days early</option>
+        <option value="-25" {{ 'selected' if days_late == '-25'}}>25 days early</option>
+        <option value="-24" {{ 'selected' if days_late == '-24'}}>24 days early</option>
+        <option value="-23" {{ 'selected' if days_late == '-23'}}>23 days early</option>
+        <option value="-22" {{ 'selected' if days_late == '-22'}}>22 days early</option>
+        <option value="-21" {{ 'selected' if days_late == '-21'}}>21 days early</option>
+        <option value="-20" {{ 'selected' if days_late == '-20'}}>20 days early</option>
+        <option value="-19" {{ 'selected' if days_late == '-19'}}>19 days early</option>
+        <option value="-18" {{ 'selected' if days_late == '-18'}}>18 days early</option>
+        <option value="-17" {{ 'selected' if days_late == '-17'}}>17 days early</option>
+        <option value="-16" {{ 'selected' if days_late == '-16'}}>16 days early</option>
+        <option value="-15" {{ 'selected' if days_late == '-15'}}>15 days early</option>
+        <option value="-14" {{ 'selected' if days_late == '-14'}}>14 days early</option>
+        <option value="-13" {{ 'selected' if days_late == '-13'}}>13 days early</option>
+        <option value="-12" {{ 'selected' if days_late == '-12'}}>12 days early</option>
+        <option value="-11" {{ 'selected' if days_late == '-11'}}>11 days early</option>
+        <option value="-10" {{ 'selected' if days_late == '-10'}}>10 days early</option>
+        <option value="-9" {{ 'selected' if days_late == '-9'}}>9 days early</option>
+        <option value="-8" {{ 'selected' if days_late == '-8'}}>8 days early</option>
+        <option value="-7" {{ 'selected' if days_late == '-7'}}>7 days early</option>
+        <option value="-6" {{ 'selected' if days_late == '-6'}}>6 days early</option>
+        <option value="-5" {{ 'selected' if days_late == '-5'}}>5 days early</option>
+        <option value="-4" {{ 'selected' if days_late == '-4'}}>4 days early</option>
+        <option value="-3" {{ 'selected' if days_late == '-3'}}>3 days early</option>
+        <option value="-2" {{ 'selected' if days_late == '-2'}}>2 days early</option>
+        <option value="-1" {{ 'selected' if days_late == '-1'}}>1 days early</option>
+        <option value="0" {{ 'selected' if days_late == '0' or not days_late}}>On Time!!!</option>
+        <option value="1" {{ 'selected' if days_late == '1'}}>1 days late</option>
+        <option value="2" {{ 'selected' if days_late == '2'}}>2 days late</option>
+        <option value="3" {{ 'selected' if days_late == '3'}}>3 days late</option>
+        <option value="4" {{ 'selected' if days_late == '4'}}>4 days late</option>
+        <option value="5" {{ 'selected' if days_late == '5'}}>5 days late</option>
+        <option value="6" {{ 'selected' if days_late == '6'}}>6 days late</option>
+        <option value="7" {{ 'selected' if days_late == '7'}}>7 days late</option>
+        <option value="8" {{ 'selected' if days_late == '8'}}>8 days late</option>
+        <option value="9" {{ 'selected' if days_late == '9'}}>9 days late</option>
+        <option value="10" {{ 'selected' if days_late == '10'}}>10 days late</option>
+        <option value="11" {{ 'selected' if days_late == '11'}}>11 days late</option>
+        <option value="12" {{ 'selected' if days_late == '12'}}>12 days late</option>
+        <option value="13" {{ 'selected' if days_late == '13'}}>13 days late</option>
+        <option value="14" {{ 'selected' if days_late == '14'}}>14 days late</option>
+        <option value="15" {{ 'selected' if days_late == '15'}}>15 days late</option>
+        <option value="16" {{ 'selected' if days_late == '16'}}>16 days late</option>
+        <option value="17" {{ 'selected' if days_late == '17'}}>17 days late</option>
+        <option value="18" {{ 'selected' if days_late == '18'}}>18 days late</option>
+        <option value="19" {{ 'selected' if days_late == '19'}}>19 days late</option>
+        <option value="20" {{ 'selected' if days_late == '20'}}>20 days late</option>
+        <option value="21" {{ 'selected' if days_late == '21'}}>21 days late</option>
+        <option value="22" {{ 'selected' if days_late == '22'}}>22 days late</option>
+        <option value="23" {{ 'selected' if days_late == '23'}}>23 days late</option>
+        <option value="24" {{ 'selected' if days_late == '24'}}>24 days late</option>
+        <option value="25" {{ 'selected' if days_late == '25'}}>25 days late</option>
+        <option value="26" {{ 'selected' if days_late == '26'}}>26 days late</option>
+        <option value="27" {{ 'selected' if days_late == '27'}}>27 days late</option>
+        <option value="28" {{ 'selected' if days_late == '28'}}>28 days late</option>
+        <option value="29" {{ 'selected' if days_late == '29'}}>29 days late</option>
+        <option value="30" {{ 'selected' if days_late == '30'}}>30 days late</option>
+      </select>
       <br><span class="fake_label">Predicted due date: </span><span class="due_date"></span>
     </div>
     <div class="field">

@@ -1,8 +1,7 @@
 the_due_date = new Date("2015-12-22");
 
-update_early_late = function(parent) {
-    early_late_elem = $('.early_late', parent);
-    if (early_late_elem.is('input')) {
+update_early_late = function(early_late_elem, parent) {
+    if (early_late_elem.is('option')) {
         early_late = parseInt(early_late_elem.val(), 10);
     }
     else {
@@ -13,11 +12,15 @@ update_early_late = function(parent) {
     $('.due_date', parent).text(date_text);
 };
 
-$('.guess').each(function() {
-    update_early_late(this);
+$('tr.guess').each(function() {
+    update_early_late($('.early_late', this), this);
 });
-$('.guess .early_late').change(function() {
-    update_early_late($(this).parent());
+$('form.guess').each(function() {
+    update_early_late($('.early_late option:selected', this), this);
+});
+$('form.guess .early_late').change(function() {
+    parent = $(this).parent();
+    update_early_late($('.early_late option:selected', parent), parent);
 });
 
 update_weight = function(parent) {
