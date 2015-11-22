@@ -19,7 +19,10 @@ def new_guess(request):
     your_name = request.params['your_name']
     baby_sex = request.params['baby_sex']
     days_late = request.params['days_late']
-    guess = Guess(your_name=your_name, baby_sex=baby_sex, days_late=days_late)
+    pounds = int(request.params['pounds'])
+    just_ounces = int(request.params['ounces'])
+    all_in_ounces = pounds * 16 + just_ounces
+    guess = Guess(your_name=your_name, baby_sex=baby_sex, days_late=days_late, ounces=all_in_ounces)
     DBSession.add(guess)
     return HTTPFound(location=request.route_url('guesses'))
 

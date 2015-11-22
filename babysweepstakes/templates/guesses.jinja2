@@ -2,10 +2,14 @@
 {% block content %}
   <table>
     <thead>
-        <th>Guesser</th>
-        <th>Sex</th>
-        <th>Days Early (-) / Late (+)</th>
-        <th>Guessed Due Date</th>
+        <tr>
+            <th>Guesser</th>
+            <th>Sex</th>
+            <th>Days Early (-) / Late (+)</th>
+            <th>Guessed Due Date</th>
+            <th>Weight (lb & oz)</th>
+            <th>Weight (kg)</th>
+        </tr>
     </thead>
     {% for guess in guesses %}
     <tr class="guess">
@@ -13,6 +17,8 @@
         <td>{{guess.baby_sex}}</td>
         <td class="early_late">{{guess.days_late}}</td>
         <td class="due_date"></td>
+        <td>{{guess.pounds_and_ounces}}</td>
+        <td>{{guess.kilos_and_grams}}</td>
     </tr>
     {% endfor %}
   </table>
