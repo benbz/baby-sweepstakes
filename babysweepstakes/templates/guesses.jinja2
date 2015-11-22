@@ -3,11 +3,13 @@
   <table>
     <thead>
         <th>Guesser</th>
+        <th>Sex</th>
         <th>Days Early (-) / Late (+)</th>
     </thead>
     {% for guess in guesses %}
     <tr>
         <td>{{guess.your_name}}</td>
+        <td>{{guess.baby_sex}}</td>
         <td>{{guess.days_late}}</td>
     </tr>
     {% endfor %}
