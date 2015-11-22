@@ -5,12 +5,14 @@
         <th>Guesser</th>
         <th>Sex</th>
         <th>Days Early (-) / Late (+)</th>
+        <th>Guessed Due Date</th>
     </thead>
     {% for guess in guesses %}
-    <tr>
+    <tr class="guess">
         <td>{{guess.your_name}}</td>
         <td>{{guess.baby_sex}}</td>
-        <td>{{guess.days_late}}</td>
+        <td class="early_late">{{guess.days_late}}</td>
+        <td class="due_date"></td>
     </tr>
     {% endfor %}
   </table>
