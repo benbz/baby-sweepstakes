@@ -23,7 +23,7 @@ Base = declarative_base()
 class Guess(Base):
     __tablename__ = 'guess'
     id = Column(Integer, primary_key=True)
-    your_name = Column(String, nullable=False)
+    your_name = Column(String(255), nullable=False)
     baby_sex = Column(Enum('Boy', 'Girl'), nullable=False)
     days_late = Column(Integer, nullable=False)
     ounces = Column(Integer, nullable=False)
@@ -40,5 +40,5 @@ class Guess(Base):
         return '%d.%dkg' % (all_grams / 1000, all_grams % 1000)
 
 
-Index('days_late', Guess.days_late, unique=False, mysql_length=255)
-Index('ounces', Guess.ounces, unique=False, mysql_length=255)
+Index('days_late', Guess.days_late, unique=False)
+Index('ounces', Guess.ounces, unique=False)
