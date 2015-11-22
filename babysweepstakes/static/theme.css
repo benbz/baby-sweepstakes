@@ -15,3 +15,69 @@ p {
   font-weight: 300;
 }
 
+.wrapper {
+    padding-left : 1em;
+    padding-right: 1em;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        position: relative;
+        width: 80%;
+    }
+}
+
+@media (min-width: 992px) {
+    .wrapper {
+        position: relative;
+        width: 60%;
+    }
+}
+
+form.guess {
+    padding: 1em;
+}
+
+.field {
+    padding-bottom: 1em;
+}
+
+.error {
+    color: red;
+    margin-right: 0.5em;
+}
+
+.sex {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.fake_label {
+    font-style: italic;
+}
+
+input[type=number] {
+    width: 3em;
+    margin-right: 0.25em;
+}
+
+.all-guesses {
+    margin-left: auto ;
+    margin-right: auto ;
+    padding: 1em;
+}
+
+.all-guesses th,
+.all-guesses td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color:#eee;
+}
+tbody tr:nth-child(even) {
+    background-color:#fff;
+}

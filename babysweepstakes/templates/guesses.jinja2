@@ -1,6 +1,6 @@
 {% extends "templates/Layout.jinja2" %}
 {% block content %}
-  <table>
+  <table class="all-guesses">
     <thead>
         <tr>
             <th>Guesser</th>
@@ -11,6 +11,7 @@
             <th>Weight (kg)</th>
         </tr>
     </thead>
+    <tbody>
     {% for guess in guesses %}
     <tr class="guess">
         <td>{{guess.your_name}}</td>
@@ -21,5 +22,6 @@
         <td>{{guess.kilos_and_grams}}</td>
     </tr>
     {% endfor %}
+    </tbody>
   </table>
 {% endblock %}
