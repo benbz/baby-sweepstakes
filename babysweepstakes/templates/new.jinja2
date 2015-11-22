@@ -1,7 +1,12 @@
 {% extends "templates/Layout.jinja2" %}
 {% block content %}
-<h1>Yes</h1>
-<p>
-  Some random paragraph.
-</p>
+  <form method="POST" action="new_guess">
+    <div>
+      <input type="text" name="your_name"/>
+    </div>
+    <div>
+      <input type="number" name="days_late"/>
+    </div>
+    <input type="submit" value="Submit"/>
+  </form>
 {% endblock %}
