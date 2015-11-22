@@ -36,5 +36,21 @@ $('.guess .pounds').change(function() {
     update_weight($(this).parent());
 });
 $('.guess .ounces').change(function() {
+    ounces = $(this).val();
+    pounds_elem = $(this).parent().find('.pounds');
+    pounds = parseInt(pounds_elem.val(), 10);
+    if (ounces >= 16) {
+        pounds_elem.val(pounds + 1);
+        $(this).val(0);
+    }
+    else if (ounces < 0) {
+        if (pounds > 0) {
+            pounds_elem.val(pounds - 1);
+            $(this).val(15);
+        }
+        else {
+            $(this).val(0);
+        }
+    }
     update_weight($(this).parent());
 });
