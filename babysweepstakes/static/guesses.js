@@ -29,7 +29,7 @@ update_weight = function(parent) {
     all_ounces = pounds * 16 + ounces;
     all_grams = all_ounces * 28.3495;
     kilos = Math.floor(all_grams / 1000);
-    grams = Math.floor(all_grams % 1000);
+    grams = ("000" + Math.floor(all_grams % 1000)).slice(-3);
     metric_text = !isNaN(kilos) ? '' + kilos + '.' + grams + 'kg' : '';
     $('.kilos_and_grams', parent).text(metric_text);
 };

@@ -37,7 +37,7 @@ class Guess(Base):
     @hybrid_property
     def kilos_and_grams(self):
         all_grams = int(self.ounces * 28.3495)
-        return '%d.%dkg' % (all_grams / 1000, all_grams % 1000)
+        return '%d.%03dkg' % (all_grams / 1000, all_grams % 1000)
 
 
 Index('days_late', Guess.days_late, unique=False)
