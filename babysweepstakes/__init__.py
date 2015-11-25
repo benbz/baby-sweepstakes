@@ -1,6 +1,12 @@
 import os
 from pyramid.config import Configurator
-from sqlalchemy import create_engine
+from sqlalchemy import (
+    create_engine,
+    event,
+    exc,
+    )
+
+from sqlalchemy.pool import Pool
 
 from .models import (
     DBSession,
@@ -8,11 +14,21 @@ from .models import (
     )
 
 
+@event.listens_for(Pool, "checkout")
+def ping_connection(dbapi_connection, connection_record, connection_proxy):
+    cursor = dbapi_connection.cursor()
+    try:
+        cursor.execute("SELECT 1")
+    except:
+        raise exc.DisconnectionError()
+    cursor.close()
+
+
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
     sqlalchemy_url = os.path.expandvars(settings.get('sqlalchemy.url'))
-    engine = create_engine(sqlalchemy_url)
+    engine = create_engine(sqlalchemy_url, pool_recycle=3600)
     DBSession.configure(bind=engine)
     Base.metadata.bind = engine
     config = Configurator(settings=settings)
